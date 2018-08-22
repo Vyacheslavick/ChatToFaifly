@@ -15,6 +15,12 @@ public class MessageRecyclerAdapter extends RecyclerView.Adapter<MessageRecycler
     public List<Message> messages;
     public OnRecyclerItemClick onRecyclerItemClick;
 
+    public MessageRecyclerAdapter(Context context, List<Message> messages, OnRecyclerItemClick onRecyclerItemClick) {
+        this.context = context;
+        this.messages = messages;
+        this.onRecyclerItemClick = onRecyclerItemClick;
+    }
+
     public interface OnRecyclerItemClick{
         void onClick(int position);
     }

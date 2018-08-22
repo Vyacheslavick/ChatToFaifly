@@ -11,13 +11,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Enter user you want to write" />
+        android:text="Enter user that you want to write" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_gravity="center"
-        android:hint="Write here"/>
+        android:hint="Write here"
+        android:id="@+id/anotherUser"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to chat"
+        android:layout_gravity="center"
+        android:id="@+id/go_to_chat"/>
 
     <FrameLayout
         android:layout_width="0dp"

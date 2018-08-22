@@ -14,7 +14,7 @@ package com.example.slavick.chatforwork;
 
 public class Retrofit {
 
-    private static final String ENDPOINT = "https://docs.google.com/document/d/1f4z8yMeQ0Dka244115cvEhvAtpUYCooO-RiZqZw4_Wg/edit?usp=sharing";
+    private static final String ENDPOINT = "https://docs.google.com/document/d/1f4z8yMeQ0Dka244115cvEhvAtpUYCooO-RiZqZw4_Wg";
     private static ApiInterface apiInterface;
     static {
         initialize();
