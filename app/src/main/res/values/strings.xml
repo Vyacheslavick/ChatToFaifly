@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ChatForWork</string>
+    <string name="reg">First time here? -> Registration</string>
+    <string name="user_not_found">Sorry, but this acc not found(</string>
+</resources>
