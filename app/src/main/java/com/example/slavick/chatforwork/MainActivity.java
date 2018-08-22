@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+                    startActivity(intent);
 
                 } catch (FileNotFoundException e) {
                     login.setText(R.string.user_not_found);
