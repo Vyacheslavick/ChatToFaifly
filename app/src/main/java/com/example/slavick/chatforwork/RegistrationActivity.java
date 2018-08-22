@@ -1,6 +1,7 @@
 package com.example.slavick.chatforwork;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +15,8 @@ import java.io.IOException;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    public String user_name = "FIleName";
+    private static final String EXTRA_TEXT = "kek" ;
+    public String user_name = "FileName";
     TextView nameCheck;
     TextView passCheck;
     EditText newName;
@@ -42,6 +44,11 @@ public class RegistrationActivity extends AppCompatActivity {
                             password.write(newPass.getText().toString().getBytes());
                             name.close();
                             password.close();
+                            Intent intent = new Intent();
+                            intent.putExtra(EXTRA_TEXT, newName.getText().toString());
+                            intent.putExtra(EXTRA_TEXT + "2", newPass.getText().toString());
+                            setResult(RESULT_OK, intent);
+                            onBackPressed();
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         } catch (IOException e) {

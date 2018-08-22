@@ -14,7 +14,7 @@ package com.example.slavick.chatforwork;
 
 public class Retrofit {
 
-    private static final String ENDPOINT = "https://docs.google.com/document/d/1f4z8yMeQ0Dka244115cvEhvAtpUYCooO-RiZqZw4_Wg";
+    private static final String ENDPOINT = "";
     private static ApiInterface apiInterface;
     static {
         initialize();
@@ -24,12 +24,13 @@ public class Retrofit {
 
     interface ApiInterface {
 
-        @POST("/edit?usp=sharing")
+        @POST("")
         void sendMessage(@Body Message message,
                          Callback<Message> callback);
 
-        @GET("/edit?usp=sharing")
+        @GET("")
         void getMessage(@Path("username") String username,
+                        @Query("fulltext") String query,
                         Callback<List<Message>> callback);
     }
     public static void initialize(){
@@ -40,7 +41,7 @@ public class Retrofit {
         apiInterface = restAdapter.create(ApiInterface.class);
     }
     public static void getMessage(String name, Callback<List<Message>> callback){
-        apiInterface.getMessage(name, callback);
+        apiInterface.getMessage(name,"true", callback);
     }
     public static void sendMessage(Message message, Callback<Message> callback){
         apiInterface.sendMessage(message, callback);

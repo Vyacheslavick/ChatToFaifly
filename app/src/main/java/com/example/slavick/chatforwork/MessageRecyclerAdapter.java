@@ -38,6 +38,10 @@ public class MessageRecyclerAdapter extends RecyclerView.Adapter<MessageRecycler
         holder.messageText.setText(message.messageText);
         holder.username.setText(message.username);
     }
+    public void addItem(Message message) {
+        messages.add(0, message);
+        notifyItemInserted(0);
+    }
 
     @Override
     public int getItemCount() {

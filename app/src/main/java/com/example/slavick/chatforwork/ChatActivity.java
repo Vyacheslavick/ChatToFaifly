@@ -38,19 +38,8 @@ public class ChatActivity extends AppCompatActivity {
                     sharedPreferences.edit().putString(SP_SAVE, anotherUser.getText().toString());
                     SharedPreferences sp = getSharedPreferences("USER", Context.MODE_PRIVATE);
                     sp.edit().putString("user", intent.getStringExtra("USER"));
-                    Retrofit.getMessage(anotherUser.getText().toString(), new Callback<List<Message>>() {
-                        @Override
-                        public void success(List<Message> messages, Response response) {
-                            getSupportFragmentManager()
-                                    .beginTransaction()
-                                    .replace(R.id.container_speak, ChattingFragment.getInstance()).commit();
-                        }
-
-                        @Override
-                        public void failure(RetrofitError error) {
-
-                        }
-                    });
+                    Intent intent1 = new Intent(ChatActivity.this, DialogActivity.class);
+                    startActivity(intent1);
                 }
             }
         });

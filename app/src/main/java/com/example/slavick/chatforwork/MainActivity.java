@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String EXTRA_TEXT = "kek" ;
+    public static final int REQUEST_ADD = 15;
     public String user_name = "FileName";
     TextView reg;
     Button login;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         enterName = findViewById(R.id.enterName);
         userLogin = findViewById(R.id.userLogin);
         userPass = findViewById(R.id.userPass);
+        login = findViewById(R.id.login);
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,12 +68,21 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 } catch (FileNotFoundException e) {
-                    login.setText(R.string.user_not_found);
+                    enterName.setText(R.string.user_not_found);
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         });
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (REQUEST_ADD == requestCode && RESULT_OK == resultCode && data != null){
+            userLogin.setText(data.getStringExtra(EXTRA_TEXT));
+            userPass.setText(data.getStringExtra(EXTRA_TEXT + "2"));
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 }

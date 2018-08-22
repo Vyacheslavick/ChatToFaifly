@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ChatActivity">
+    tools:context=".DialogActivity"
+    android:orientation="vertical">
 
     <android.support.v7.widget.RecyclerView
+        android:layout_weight="1"
         android:id="@+id/message_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        tools:listitem="@layout/item_message"
-        android:layout_marginBottom="52dp"/>
+        tools:listitem="@layout/item_message" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
 
         <EditText
+            android:inputType="text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="100"
             android:hint="Enter message..."
+            android:ems="10"
             android:maxLines="5"
             android:textSize="24sp"
             android:id="@+id/createMessage"/>
@@ -40,5 +44,4 @@
 
     </LinearLayout>
 
-
-</FrameLayout>
+</LinearLayout>
